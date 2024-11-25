@@ -14,14 +14,13 @@ class AboutScreen extends StatelessWidget {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'About App',
+          'About this App',
           style: TextStyle(color: Colors.black),
         ),
       ),
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          // Background Image
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -30,14 +29,12 @@ class AboutScreen extends StatelessWidget {
               ),
             ),
           ),
-          // Content
           SingleChildScrollView(
             child: SafeArea(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
-                    // App Logo Section
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
@@ -46,7 +43,6 @@ class AboutScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          // App Icon
                           Container(
                             padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
@@ -81,44 +77,43 @@ class AboutScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // Main Features Grid
                     GridView.count(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       crossAxisCount: 2,
-                      mainAxisSpacing: 16,
-                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                      childAspectRatio: 0.8,
                       children: const [
                         FeatureCard(
                           icon: Icons.thermostat_outlined,
                           title: 'Temperature',
                           color: Colors.orange,
-                          description: 'Real-time temperature updates',
+                          description: 'Real-time updates',
                         ),
                         FeatureCard(
                           icon: Icons.water_drop_outlined,
                           title: 'Humidity',
                           color: Colors.blue,
-                          description: 'Current humidity levels',
+                          description: 'Current levels',
                         ),
                         FeatureCard(
                           icon: Icons.cloud_outlined,
                           title: 'Weather',
                           color: Colors.purple,
-                          description: 'Weather conditions',
+                          description: 'Conditions',
                         ),
                         FeatureCard(
                           icon: Icons.location_on_outlined,
                           title: 'Location',
                           color: Colors.green,
-                          description: 'Search any city',
+                          description: 'Search city',
                         ),
                       ],
                     ),
 
                     const SizedBox(height: 20),
 
-                    // Additional Info Cards
                     Row(
                       children: [
                         Expanded(
@@ -143,7 +138,6 @@ class AboutScreen extends StatelessWidget {
 
                     const SizedBox(height: 20),
 
-                    // Developer Info
                     Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(

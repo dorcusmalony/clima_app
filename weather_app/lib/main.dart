@@ -1,5 +1,5 @@
 // main.dart
-// ignore: depend_on_referenced_packages
+
 import 'package:weather_app/weather_screen.dart';
 import 'package:flutter/material.dart';
 import 'about_screen.dart';

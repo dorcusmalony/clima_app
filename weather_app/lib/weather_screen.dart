@@ -1,5 +1,4 @@
-// weather_service_screen.dart
-// weather_service_screen.dart
+
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -20,10 +19,14 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
 
   Future<void> _getDetailedWeather() async {
     // Validate input
-    if (_cityController.text.trim().isEmpty) {
+    String cityName = _cityController.text.trim();
+    if (cityName.isEmpty) {
       _showErrorSnackBar('Please enter a city name');
       return;
     }
+
+    // Normalize city name to proper case
+    cityName = _capitalizeCityName(cityName);
 
     setState(() {
       _isLoading = true;
@@ -33,7 +36,7 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
 
     final weatherService = WeatherService();
     try {
-      final data = await weatherService.fetchWeather(_cityController.text);
+      final data = await weatherService.fetchWeather(cityName);
       setState(() {
         _isLoading = false;
         if (data != null) {
@@ -49,6 +52,15 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
       });
       _showErrorSnackBar('An error occurred. Please check your internet connection.');
     }
+  }
+
+  // Capitalize the first letter of each word in the city name
+  String _capitalizeCityName(String cityName) {
+    return cityName.split(' ').map((word) {
+      return word.isNotEmpty
+          ? word[0].toUpperCase() + word.substring(1).toLowerCase()
+          : '';
+    }).join(' ');
   }
 
   void _showErrorSnackBar(String message) {
