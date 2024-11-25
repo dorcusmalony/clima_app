@@ -22,12 +22,9 @@ A modern and user-friendly weather application built with Flutter that provides 
 - Automatic location detection
 
 ## 📱 Screenshots
+![Screenshot (79)](https://github.com/user-attachments/assets/8a7d58a5-cb62-429a-8d28-86720dcff818)
 
-<div style="display: flex; justify-content: space-between;">
-    <img src="/homescreen.png" alt=" Home Screen" />
-    <img src="/weatherdetail.png" alt=" Weather Details" />
-    <img src="/aboutscreen.png" alt= "About Screen" />
-</div>
+
 
 ## 🛠️ Installation
 
