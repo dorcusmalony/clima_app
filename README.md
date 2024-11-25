@@ -24,9 +24,9 @@ A modern and user-friendly weather application built with Flutter that provides 
 ## 📱 Screenshots
 
 <div style="display: flex; justify-content: space-between;">
-    <img src="/API/placeholder/200/400" alt=" Home Screen" />
-    <img src="/API/placeholder/200/400" alt=" Weather Details" />
-    <img src="/API/placeholder/200/400" alt= "About Screen" />
+    <img src="/homescreen.png" alt=" Home Screen" />
+    <img src="/weatherdetail.png" alt=" Weather Details" />
+    <img src="/aboutscreen.png" alt= "About Screen" />
 </div>
 
 ## 🛠️ Installation
@@ -40,7 +40,7 @@ git clone https://github.com/yourusername/weather_app.git
 ```bash
 cd weather_app
 flutter pub get
-```
+
 
 3. **Run the app**
 ```bash
@@ -57,7 +57,7 @@ flutter run
 ## 🔧 Configuration
 
 1. **API Setup**
-- Sign up for a weather API key at [OpenWeatherMap API]
+- Sign up for a weather API key at [OpenWeatherMap API](https://home.openweathermap.org/api_keys)
 - Create a `.env` file in the project root
 - Add your API key:
   env
@@ -72,17 +72,6 @@ flutter run
 # Release mode
 flutter run --release
 ```
-
-## 📁 Project Structure
-
-```
-lib/
-├── about_screen.dart         # about app
-├── home_screen.dart         # UI screen
-├── weather_screen,dart       # weather services       
-└── main.dart                # Entry point
-
-
 ## 🔨 Technologies Used
 
 - Flutter
@@ -94,13 +83,9 @@ lib/
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+3. Commit your changes ('git commit -m 'Add some AmazingFeature')
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📃 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Authors
 
