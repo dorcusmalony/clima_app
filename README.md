@@ -71,14 +71,14 @@ flutter run
 # Release mode
 flutter run --release
 ```
-## 🔨 Technologies Used
+🔨 Technologies Used
 
 - Flutter
 - Dart
 - Weather API
 - Other relevant technologies like Android Studio
 
-### 🤝 Contributing
+ 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -86,21 +86,21 @@ flutter run --release
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-### 👥 Authors
+ 👥 Authors
 
 - **Dorcus Adich Alier Malony** - *Initial work* 
 
-### 🙏 Acknowledgments
+ 🙏 Acknowledgments
 
 - Weather data provided by [OpenWeatherMap API]
 - Icons from Icon Sources
   
 
-### 📞 Support
+ 📞 Support
 
 for your support, please email me at d.malony@alustudent.com 
 
-### 🚀 Future Updates
+ 🚀 Future Updates
 
 -  Weekly forecast
 -  Weather notifications
