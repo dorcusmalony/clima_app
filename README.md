@@ -92,7 +92,7 @@ flutter run --release
 
 ## 🙏 Acknowledgments
 
-- Weather data provided by [OpenWeatherMap API](https://home.openweathermap.org/api_keys)
+- Weather data provided by [OpenWeatherMap API]
 - Icons from Icon Sources
   
 
