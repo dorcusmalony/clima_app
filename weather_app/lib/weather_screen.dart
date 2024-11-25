@@ -19,9 +19,16 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
   String _errorMessage = '';
 
   Future<void> _getDetailedWeather() async {
+    // Validate input
+    if (_cityController.text.trim().isEmpty) {
+      _showErrorSnackBar('Please enter a city name');
+      return;
+    }
+
     setState(() {
       _isLoading = true;
       _errorMessage = '';
+      _weatherData = null;
     });
 
     final weatherService = WeatherService();
@@ -31,6 +38,8 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
         _isLoading = false;
         if (data != null) {
           _weatherData = data;
+        } else {
+          _showErrorSnackBar('City not found. Please check the name and try again.');
         }
       });
     } catch (e) {
@@ -38,7 +47,17 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
         _isLoading = false;
         _errorMessage = 'Error: $e';
       });
+      _showErrorSnackBar('An error occurred. Please check your internet connection.');
     }
+  }
+
+  void _showErrorSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
   }
 
   @override
@@ -91,7 +110,7 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
                     ),
                     const SizedBox(height: 8),
                     Text(
-                      'Current Temperature: ${_weatherData!['list'][0]['main']['temp']}°C',
+                      'Current Temperature: ${_weatherData!['list'][0]['main']['temp'].toStringAsFixed(1)}°C',
                       style: const TextStyle(fontSize: 26, color: Colors.white),
                     ),
                     Text(
@@ -135,7 +154,7 @@ class _WeatherServiceScreenState extends State<WeatherServiceScreen> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    '${forecast['main']['temp']}°C',
+                                    '${forecast['main']['temp'].toStringAsFixed(1)}°C',
                                     style: const TextStyle(fontSize: 26),
                                   ),
                                   const SizedBox(height: 8),
@@ -176,6 +195,8 @@ class WeatherService {
       final response = await http.get(url);
       if (response.statusCode == 200) {
         return jsonDecode(response.body) as Map<String, dynamic>;
+      } else if (response.statusCode == 404) {
+        return null;
       } else {
         throw 'Failed to load weather data. Status code: ${response.statusCode}';
       }

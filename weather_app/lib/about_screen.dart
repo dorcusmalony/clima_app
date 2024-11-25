@@ -15,7 +15,7 @@ class AboutScreen extends StatelessWidget {
         ),
         title: const Text(
           'About App',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.black),
         ),
       ),
       extendBodyBehindAppBar: true,
@@ -25,7 +25,7 @@ class AboutScreen extends StatelessWidget {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('images/about1.jpg'),
+                image: AssetImage('images/about1.jpeg'),
                 fit: BoxFit.cover,
               ),
             ),
