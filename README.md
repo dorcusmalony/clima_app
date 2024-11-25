@@ -1,4 +1,3 @@
-# clima_app
 # Weather App 🌤️
 
 A modern and user-friendly weather application built with Flutter that provides real-time weather information for any city. Get instant access to temperature, humidity, and weather conditions with a beautiful, intuitive interface.
