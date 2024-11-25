@@ -33,8 +33,7 @@ A modern and user-friendly weather application built with Flutter that provides 
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/weather_app.git
-```
+
 
 2. **Install dependencies**
 ```bash
@@ -93,7 +92,7 @@ flutter run --release
 
 ## 🙏 Acknowledgments
 
-- Weather data provided by [OpenWeatherMap API]
+- Weather data provided by [OpenWeatherMap API](https://home.openweathermap.org/api_keys)
 - Icons from Icon Sources
   
 
