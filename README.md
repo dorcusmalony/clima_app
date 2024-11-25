@@ -22,6 +22,8 @@ A modern and user-friendly weather application built with Flutter that provides 
 
 ## 📱 Screenshots
 ![Screenshot (79)](https://github.com/user-attachments/assets/8a7d58a5-cb62-429a-8d28-86720dcff818)
+![Screenshot (81)](https://github.com/user-attachments/assets/b1393f05-aee8-4fec-b9cf-d0d6141d111d)
+
 
 
 
