@@ -102,11 +102,11 @@ for your support, please email me at d.malony@alustudent.com
 
 ## 🚀 Future Updates
 
-- [ ] Weekly forecast
-- [ ] Weather notifications
-- [ ] Multiple locations support
-- [ ] Weather maps
-- [ ] Custom themes
+-  Weekly forecast
+-  Weather notifications
+-  Multiple locations support
+-  Weather maps
+-  Custom themes
 
 
 Made with ❤️ by Dorcus
