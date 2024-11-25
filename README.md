@@ -29,7 +29,7 @@ A modern and user-friendly weather application built with Flutter that provides 
 
 
 
-## 🛠️ Installation
+### 🛠️ Installation
 
 1. **Clone the repository**
 ```bash
@@ -46,14 +46,14 @@ flutter pub get
 flutter run
 ```
 
-## ⚙️ Requirements
+### ⚙️ Requirements
 
 - Flutter SDK: >=3.0.0
 - Dart SDK: >=3.0.0
 - Android Studio / VS Code
 - Android SDK / iOS SDK
 
-## 🔧 Configuration
+### 🔧 Configuration
 
 1. **API Setup**
 - Sign up for a weather API key at [OpenWeatherMap API](https://home.openweathermap.org/api_keys)
@@ -78,7 +78,7 @@ flutter run --release
 - Weather API
 - Other relevant technologies like Android Studio
 
-## 🤝 Contributing
+### 🤝 Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
@@ -86,21 +86,21 @@ flutter run --release
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 👥 Authors
+### 👥 Authors
 
 - **Dorcus Adich Alier Malony** - *Initial work* 
 
-## 🙏 Acknowledgments
+### 🙏 Acknowledgments
 
 - Weather data provided by [OpenWeatherMap API]
 - Icons from Icon Sources
   
 
-## 📞 Support
+### 📞 Support
 
 for your support, please email me at d.malony@alustudent.com 
 
-## 🚀 Future Updates
+### 🚀 Future Updates
 
 -  Weekly forecast
 -  Weather notifications
