@@ -1,10 +1,9 @@
 // main.dart
-
+// ignore: depend_on_referenced_packages
 import 'package:weather_app/weather_screen.dart';
 import 'package:flutter/material.dart';
 import 'about_screen.dart';
 import 'home_screen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -45,7 +44,7 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<String> _titles = [
     'Weather App',
-    'About',
+    'About the weather app',
     'Weather Details'
   ];
 

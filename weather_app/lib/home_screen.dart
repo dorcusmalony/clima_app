@@ -43,16 +43,26 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final TextEditingController _cityController = TextEditingController();
   String? _temperature;
   String? _description;
   String? _cityName;
   bool _isLoading = false;
+
+  late AnimationController _fadeController;
+
+  @override
+  void initState() {
+    super.initState();
+    _fadeController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+  }
 
   Future<void> _getWeatherForCity() async {
     if (_cityController.text.isEmpty) {
@@ -77,6 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
           _description = data['weather'][0]['description'];
           _cityName = data['name'];
         });
+        _fadeController.forward(from: 0.0); // Trigger the fade animation when data is loaded
       } else {
         _showErrorSnackBar('City not found. Please check the name and try again.');
       }
@@ -90,8 +101,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _showErrorSnackBar(String message) {
-    setState(() {
-    });
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
@@ -116,17 +125,33 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
+  void dispose() {
+    _cityController.dispose();
+    _fadeController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('images/location_background.jpg'),
-                fit: BoxFit.cover,
-              ),
-            ),
+          AnimatedBuilder(
+            animation: _fadeController,
+            builder: (context, child) {
+              return Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: const AssetImage('images/location_background.jpg'),
+                    fit: BoxFit.cover,
+                    colorFilter: ColorFilter.mode(
+                      Colors.black.withOpacity(_fadeController.value),
+                      BlendMode.darken,
+                    ),
+                  ),
+                ),
+              );
+            },
           ),
           SafeArea(
             child: Padding(
@@ -181,25 +206,41 @@ class _HomeScreenState extends State<HomeScreen> {
                   if (_isLoading) 
                     const Center(child: CircularProgressIndicator()),
                   if (_temperature != null && _description != null) ...[
-                    Text(
-                      'City: ${_cityName ?? 'N/A'}',
-                      style: const TextStyle(fontSize: 22, color: Colors.white),
+                    AnimatedSwitcher(
+                      duration: const Duration(seconds: 1),
+                      child: Text(
+                        'City: ${_cityName ?? 'N/A'}',
+                        key: ValueKey(_cityName),
+                        style: const TextStyle(fontSize: 22, color: Colors.white),
+                      ),
                     ),
-                    Text(
-                      'Temperature: $_temperature',
-                      style: const TextStyle(fontSize: 22, color: Colors.white),
+                    AnimatedSwitcher(
+                      duration: const Duration(seconds: 1),
+                      child: Text(
+                        'Temperature: $_temperature',
+                        key: ValueKey(_temperature),
+                        style: const TextStyle(fontSize: 22, color: Colors.white),
+                      ),
                     ),
-                    Text(
-                      'Condition: $_description',
-                      style: const TextStyle(fontSize: 22, color: Colors.white),
+                    AnimatedSwitcher(
+                      duration: const Duration(seconds: 1),
+                      child: Text(
+                        'Condition: $_description',
+                        key: ValueKey(_description),
+                        style: const TextStyle(fontSize: 22, color: Colors.white),
+                      ),
                     ),
                     const SizedBox(height: 20),
-                    Text(
-                      'Advice: ${_getAdvice(_description!)}',
-                      style: const TextStyle(
-                        fontSize: 22,
-                        fontStyle: FontStyle.italic,
-                        color: Colors.white,
+                    AnimatedSwitcher(
+                      duration: const Duration(seconds: 1),
+                      child: Text(
+                        'Advice: ${_getAdvice(_description!)}',
+                        key: ValueKey(_getAdvice(_description!)),
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontStyle: FontStyle.italic,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],
@@ -210,11 +251,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _cityController.dispose();
-    super.dispose();
   }
 }
